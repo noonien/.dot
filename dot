@@ -28,9 +28,13 @@ def install(args):
                 if action == 'ask':
                     choice = raw_input(CONFIRM_MSG % (dotfile))[0]
 
-                    actmap = {'s': 'skip', 'o': 'override', 'b': 'backup'}
-                    # Backup by default
-                    action = actmap[choice] if choice in actmap else 'backup'
+                    # Parse the choice, default to backing up
+                    if choice == 'S' or choice == 's':
+                        action = 'skip'
+                    elif choice == 'O' or choice == 'o':
+                        action = 'override'
+                    else:
+                        action = 'backup'
 
                     if choice.isupper():
                         default_action = action
