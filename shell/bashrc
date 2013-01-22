@@ -2,8 +2,23 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# AndroidDev PATH
-export PATH=${PATH}:~/Tools/Android/SDK/tools:~/Tools/Android/SDK/platform-tools
+# AndroidDev
+if [ -d "$HOME/Tools/Android/SDK" ]; then
+    PATH="$PATH:$HOME/Tools/Android/SDK/tools:$HOME/Tools/Android/SDK/platform-tools"
+fi
+
+# Include private bin in path
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# Set GOPATH
+if [ -d "$HOME/go" ]; then
+    PATH="$PATH:$HOME/go/bin"
+    export GOPATH="$HOME/go"
+fi
+
+export PATH
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
