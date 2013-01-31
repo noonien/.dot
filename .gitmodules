@@ -4,3 +4,9 @@
 [submodule "vim-jedi"]
 	path = vim/vim/bundle/jedi
 	url = git://github.com/davidhalter/jedi-vim.git
+[submodule "nodejs/nvm"]
+	path = nodejs/nvm
+	url = git://github.com/creationix/nvm.git
+[submodule "vim/vim/bundle/golang"]
+	path = vim/vim/bundle/golang
+	url = git://github.com/jnwhiteh/vim-golang.git
