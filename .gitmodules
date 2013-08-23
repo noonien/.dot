@@ -1,9 +1,9 @@
 [submodule "vim-pathogen"]
 	path = vim/vim/bundle/pathogen
-	url = git://github.com/tpope/vim-pathogen.git
+	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim-jedi"]
 	path = vim/vim/bundle/jedi
-	url = git://github.com/davidhalter/jedi-vim.git
+	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "vim/vim/bundle/golang"]
 	path = vim/vim/bundle/golang
-	url = git://github.com/jnwhiteh/vim-golang.git
+	url = https://github.com/jnwhiteh/vim-golang.git
