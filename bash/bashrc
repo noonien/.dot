@@ -1,0 +1,10 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+    *) return;;
+esac
+
+. ~/.bash/paths.bash
+. ~/.bash/config.bash
+. ~/.bash/aliases.bash
+. ~/.bash/completion.bash
