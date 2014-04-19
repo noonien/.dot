@@ -1,27 +1,27 @@
-[submodule "vim-pathogen"]
-	path = vim/vim/bundle/pathogen
+[submodule "zsh/zsh/zilsh"]
+	path = zsh/zsh/zilsh
+	url = https://github.com/zilsh/zilsh.git
+[submodule "zsh/zsh/bundle/oh-my-zilsh"]
+	path = zsh/zsh/bundle/oh-my-zilsh
+	url = https://github.com/zilsh/oh-my-zilsh.git
+[submodule "vim/vim/pathogen"]
+	path = vim/vim/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim-jedi"]
-	path = vim/vim/bundle/jedi
-	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "vim/vim/bundle/golang"]
-	path = vim/vim/bundle/golang
-	url = https://github.com/jnwhiteh/vim-golang.git
-[submodule "vim/vim/bundle/nerdtree"]
-	path = vim/vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/vim/bundle/autoclose"]
-	path = vim/vim/bundle/autoclose
-	url = https://github.com/Townk/vim-autoclose.git
-[submodule "vim/vim/bundle/tlib"]
-	path = vim/vim/bundle/tlib
-	url = https://github.com/tomtom/tlib_vim.git
-[submodule "vim/vim/bundle/mw-utils"]
-	path = vim/vim/bundle/mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim/vim/bundle/snipmate"]
-	path = vim/vim/bundle/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-[submodule "vim/vim/bundle/snippets"]
-	path = vim/vim/bundle/snippets
-	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/vim/bundle/lightline"]
+	path = vim/vim/bundle/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/vim/bundle/flake8"]
+	path = vim/vim/bundle/flake8
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "vim/vim/bundle/jshint2"]
+	path = vim/vim/bundle/jshint2
+	url = https://github.com/Shutnik/jshint2.vim.git
+[submodule "vim/vim/bundle/go"]
+	path = vim/vim/bundle/go
+	url = https://github.com/fatih/vim-go.git
+[submodule "vim/vim/bundle/coffee"]
+	path = vim/vim/bundle/coffee
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/vim/bundle/handlebars"]
+	path = vim/vim/bundle/handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars.git

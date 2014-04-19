@@ -14,9 +14,11 @@ endif
 " This loads all the plugins in ~/.vim/bundle
 " Use tpope's pathogen plugin to manage all other plugins
 
-  runtime bundle/pathogen/autoload/pathogen.vim
-  call pathogen#infect()
-  call pathogen#helptags()
+filetype off
+filetype plugin indent off
+runtime pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
 
 " ================ General Config ====================
 
@@ -28,20 +30,39 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set relativenumber              "Show relative line numbers
+set virtualedit=block           "In visual block mode, allow going beyond EOL
+
+" ============== Enable shorter timeouts =============
+"set timeout ttimeout            "Enable timeouts for mappings and key codes
+"set timeoutlen=100              "Mapping timeout
+"set ttimeoutlen=0               "Key code timeout
+
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"turn on syntax highlighting
+" Turn on syntax highlighting
 syntax on
+
+" Unbind the cursor keys in insert, normal and visual modes.
+for prefix in ['i', 'n', 'v']
+  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+    exe prefix . "noremap " . key . " <Nop>"
+  endfor
+endfor
 
 " ================ Search Settings  =================
 
 set incsearch        "Find the next match as we type the search
 set hlsearch         "Hilight searches by default
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
+set ignorecase       "Ignore case when searching
+set smartcase        "Figure out search case automatically
+set magic            "Set magic on for regular expressions
+set showmatch        "Show matching brackets when caret is over one
 
 " ================ Turn Off Swap Files ==============
 
@@ -56,6 +77,7 @@ set nowb
 silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
+set undolevels=1000
 
 " ================ Indentation ======================
 
@@ -76,14 +98,9 @@ set list listchars=tab:\ \ ,trail:·
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
-" Highlight the 81st column
-set colorcolumn=81
+" Highlight the 80th column
+set colorcolumn=80
 
-" ================ Folds ============================
-
-set foldmethod=indent   "fold based on indent
-set foldnestmax=2       "deepest fold is 2 levels
-set foldenable          "fold by default
 
 " ================ Completion =======================
 
@@ -100,7 +117,6 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"
 
 " ================ Scrolling ========================
 
@@ -108,5 +124,13 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-" Disable popup after the dot in vim-jedi
-let g:jedi#popup_on_dot = 0
+" =============== Addon Configuration ===============
+
+" Auto run flake8 after writing the file to disk
+autocmd BufWritePost *.py call Flake8()
+
+" And go lint
+"autocmd FileType go autocmd BufWritePre <buffer> GoLint
+
+" Auto run jshint after writing a js file to disk
+let jshint2_save = 1
