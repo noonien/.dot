@@ -1,0 +1,8 @@
+# Load configuration
+for conf (~/.zsh/conf/*.zsh); do
+    source $conf
+done
+
+# start zilsh
+source ~/.zsh/zilsh/zilsh.zsh
+zilsh_init ~/.zsh/bundle
