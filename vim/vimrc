@@ -169,6 +169,14 @@
         " Auto run jshint after writing a js file to disk
         let jshint2_save = 1
     " }}}
+    " Go settings {{{2
+    " -----------
+        " Disable auto type info
+        let g:go_auto_type_info = 0
+
+        " Disable auto installation of binaries
+        let g:go_disable_autoinstall = 1
+    " }}}
 
 " ========================================================================= }}}
 " Mappings {{{1
