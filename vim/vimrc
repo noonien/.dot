@@ -100,7 +100,7 @@
 
         " Display tabs and trailing spaces visually
         set list
-        set listchars=tab:»»,trail:✖,nbsp:~
+        set listchars=tab:\ \ ,trail:·,nbsp:~
     " }}}
     " Search Settings {{{2
     " ---------------
