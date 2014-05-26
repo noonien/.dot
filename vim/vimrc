@@ -122,6 +122,9 @@
     " }}}
     " Colors Settings {{{2
     " ---------------
+        " Enable 16 color mode
+        set t_Co=16
+
         " Enable highlight search and highlight when searching
         set hlsearch
 
@@ -181,6 +184,11 @@
 " ========================================================================= }}}
 " Mappings {{{1
 " =============================================================================
+    " Use jk and kj to exit insert mode {{{2
+        inoremap jk <Esc>
+        inoremap kj <Esc>
+    " -----
+    "  }}}
     " Leader {{{2
     " ------
         let mapleader = ","
