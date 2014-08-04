@@ -3,7 +3,6 @@
 !    https://github.com/noonien/.dot
 ! =============================================================================
 
-
 ! =============================================================================
 ! XFT {{{1
 ! =============================================================================
@@ -52,11 +51,11 @@ xft.dpi:        197
 URxvt*iconFile: /usr/share/icons/gnome/scalable/apps/utilities-terminal-symbolic.svg
 
 ! Transparency
-URxvt*transparent:      true
-URxvt*shading:          30
+!URxvt*transparent:      true
+!URxvt*shading:          30
 
 ! Font
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt*font:     xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
 URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
 
 URxvt*scrollBar:        false
@@ -64,17 +63,14 @@ URxvt*cursorBlink:      true
 URxvt*secondaryScroll:  false
 
 ! Clickable URLs
-URxvt*perl-ext-common: default,matcher
-URxvt*url-launcher: /usr/bin/xdg-open
-URxvt*matcher.button: 1
+URxvt*perl-ext-common:  default,matcher
+URxvt*url-launcher:     /usr/bin/xdg-open
+URxvt*matcher.button:   1
 
 ! }}}
 ! Other {{{2
 ! -----
 URxvt*saveLines:    12000
-! }}}
-! Functionality {{{2
-! -------------
 ! }}}
 ! }}}
 ! =============================================================================
