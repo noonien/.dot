@@ -13,9 +13,6 @@
 [submodule "vim/vim/bundle/flake8"]
 	path = vim/vim/bundle/flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "vim/vim/bundle/jshint2"]
-	path = vim/vim/bundle/jshint2
-	url = https://github.com/Shutnik/jshint2.vim.git
 [submodule "vim/vim/bundle/go"]
 	path = vim/vim/bundle/go
 	url = https://github.com/fatih/vim-go.git
@@ -25,3 +22,9 @@
 [submodule "vim/vim/bundle/handlebars"]
 	path = vim/vim/bundle/handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule "vim/vim/bundle/jade"]
+	path = vim/vim/bundle/jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/vim/bundle/less"]
+	path = vim/vim/bundle/less
+	url = https://github.com/groenewege/vim-less.git
