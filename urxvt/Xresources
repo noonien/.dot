@@ -53,7 +53,7 @@ URxvt*iconFile: /usr/share/icons/gnome/scalable/apps/utilities-terminal-symbolic
 !URxvt*shading:          30
 
 ! Font
-URxvt*font:     xft:DejaVu Sans Mono:bold:pixelsize=10:antialias=true:hinting=true
+URxvt*font:     xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
 
 URxvt*letterSpace:      -1
 URxvt*scrollBar:        false
