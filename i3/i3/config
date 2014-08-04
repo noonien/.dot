@@ -52,7 +52,7 @@
         bindsym $mod+Shift+d exec --no-startup-id gksudo i3-dmenu-desktop
 
         # Start a terminal
-        bindsym $mod+grave exec urxvt
+        bindsym $mod+grave exec ~/.i3/utils/term
         bindsym $mod+Return exec i3-sensible-terminal
 
         # Start chrome
