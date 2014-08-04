@@ -128,6 +128,9 @@
         " Enable highlight search and highlight when searching
         set hlsearch
 
+        " Highlight current line
+        set cursorline
+
         " Show matching brackets when caret is over one
         set showmatch
 
