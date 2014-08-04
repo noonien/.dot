@@ -1,0 +1,81 @@
+! =============================================================================
+! This file is part of my dotfiles, which can be found at:
+!    https://github.com/noonien/.dot
+! =============================================================================
+
+
+! =============================================================================
+! XFT {{{1
+! =============================================================================
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.hintstyle:  hintslight
+xft.dpi:        197
+
+! =============================================================================
+! Colors scheme {{{1
+! =============================================================================
+! Solarized dark theme
+! http://ethanschoonover.com/solarized
+*background:              #002b36
+*foreground:              #839496
+*fading:                  10
+*fadeColor:               #002b36
+*cursorColor:             #93a1a1
+*pointerColorBackground:  #586e75
+*pointerColorForeground:  #93a1a1
+
+*color0:                  #073642
+*color1:                  #dc322f
+*color2:                  #859900
+*color3:                  #b58900
+*color4:                  #268bd2
+*color5:                  #d33682
+*color6:                  #2aa198
+*color7:                  #eee8d5
+*color8:                  #002b36
+*color9:                  #cb4b16
+*color10:                 #586e75
+*color11:                 #657b83
+*color12:                 #839496
+*color13:                 #6c71c4
+*color14:                 #93a1a1
+*color15:                 #fdf6e3
+
+! =============================================================================
+! urxvt {{{1
+! =============================================================================
+! Look and feel {{{2
+! -------------
+! Terminal icon
+URxvt*iconFile: /usr/share/icons/gnome/scalable/apps/utilities-terminal-symbolic.svg
+
+! Transparency
+URxvt*transparent:      true
+URxvt*shading:          30
+
+! Font
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
+URxvt*scrollBar:        false
+URxvt*cursorBlink:      true
+URxvt*secondaryScroll:  false
+
+! Clickable URLs
+URxvt*perl-ext-common: default,matcher
+URxvt*url-launcher: /usr/bin/xdg-open
+URxvt*matcher.button: 1
+
+! }}}
+! Other {{{2
+! -----
+URxvt*saveLines:    12000
+! }}}
+! Functionality {{{2
+! -------------
+! }}}
+! }}}
+! =============================================================================
+! vim: foldmethod=marker foldmarker={{{,}}} ts=4 sts=4 sw=4 expandtab:
