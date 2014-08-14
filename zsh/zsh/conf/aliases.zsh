@@ -1,6 +1,6 @@
 # vim
-alias v=vim
-alias svi='sudo vim'
+alias v='vim -p'
+alias svi='sudo vim -p'
 
 # python
 alias py=python
