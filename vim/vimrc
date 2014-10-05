@@ -85,6 +85,9 @@
         " Save up to 100 marks, enable capital marks
         set viminfo='100,f1
 
+        " Disable wrapping
+        set nowrap
+
     " }}}
     " Tabbing and spaces {{{2
     " ------------------
