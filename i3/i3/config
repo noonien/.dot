@@ -141,6 +141,17 @@
         bindsym $mod+Shift+b move container to workspace back_and_forth
 
     # }}}
+    # Media {{{2
+    # -----
+        # Volume raise/lower
+        bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl stat | grep 'Default Sink' | cut -d' ' -f3) +5%
+        bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl stat | grep 'Default Sink' | cut -d' ' -f3) -- -5%
+
+        # Toggle sound
+        bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pactl stat | grep 'Default Sink' | cut -d' ' -f3) toggle
+
+    # }}}
+
     # Other {{{2
     # -----
         # Change border
