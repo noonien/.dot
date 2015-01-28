@@ -180,5 +180,12 @@
     # }}}
 
 # }}}
+# Window configuration {{{1
+# =============================================================================
+    # Hangouts
+    for_window [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
+
+
+# }}}
 # =============================================================================
 # vim: foldmethod=marker foldmarker={{{,}}} ts=4 sts=4 sw=4 expandtab:
