@@ -12,14 +12,22 @@ fi
 
 # Get the process' PID
 PID=$(xprop -id $ID | grep -m 1 PID | cut -d " " -f 3)
-if [ -n "$PID" ]; then
-    TREE=$(pstree -lpA $PID | tail -n 1)
-    PID=$(echo $TREE | awk -F'---' '{print $NF}' | sed -re 's/[^0-9]//g')
-
-    # If we find the working directory, run the command in that directory
-    if [ -e "/proc/$PID/cwd" ]; then
-        exec urxvt -cd $(readlink /proc/$PID/cwd) "$@"
-    fi
+if [ -z "$PID" ]; then
+    exec urxvt "$@"
 fi
 
-exec urxvt "$@"
+TREE=$(pstree -lpA $PID | tail -n 1)
+PID=$(echo $TREE | awk -F'---' '{print $NF}' | sed -re 's/[^0-9]//g')
+
+if [ $(cat /proc/$PID/comm) = "ssh" ]; then
+    SSH_CMD=$(cat /proc/$PID/cmdline | tr '\000' ' ')
+    SSH_CWD=$(xprop -id $ID | grep "WM_NAME(STRING)" | cut -d \  -f 4 | tr -d \")
+    exec urxvt -e $SSH_CMD -t  "cd $SSH_CWD; exec $SHELL"
+fi
+
+# If we find the working directory, run the command in that directory
+if ! [ -e "/proc/$PID/cwd" ]; then
+    exec urxvt "$@"
+fi
+
+exec urxvt -cd $(readlink /proc/$PID/cwd) "$@"
