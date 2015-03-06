@@ -17,12 +17,6 @@
     set modeline
     set modelines=5
 
-    " Pathogen Initialization
-    " This loads all the plugins in ~/.vim/bundle
-    runtime pathogen/autoload/pathogen.vim
-    call pathogen#infect()
-    call pathogen#helptags()
-
     " Load plugin and indent files for specific file types
     filetype plugin on
     filetype indent on

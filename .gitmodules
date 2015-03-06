@@ -4,9 +4,6 @@
 [submodule "zsh/zsh/bundle/oh-my-zilsh"]
 	path = zsh/zsh/bundle/oh-my-zilsh
 	url = https://github.com/zilsh/oh-my-zilsh.git
-[submodule "vim/vim/pathogen"]
-	path = vim/vim/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/vim/bundle/lightline"]
 	path = vim/vim/bundle/lightline
 	url = https://github.com/itchyny/lightline.vim.git
@@ -37,3 +34,6 @@
 [submodule "vim/vim/bundle/undotree"]
 	path = vim/vim/bundle/undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule "vim/vim/bundle/hybrid"]
+	path = vim/vim/bundle/hybrid
+	url = https://github.com/w0ng/vim-hybrid.git
