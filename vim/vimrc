@@ -184,32 +184,7 @@
     " }}}
 
 " ========================================================================= }}}
-" Plugin Settings {{{1
-" =============================================================================
-    " Python Settings {{{2
-    " ---------------
-        " Auto run flake8 after writing the file to disk
-        autocmd BufWritePost *.py call Flake8()
-    " }}}
-    " JavaScript settings {{{2
-    " -------------------
-        " Auto run jshint after writing a js file to disk
-        let jshint2_save = 1
-    " }}}
-    " Go settings {{{2
-    " -----------
-        " Run goimports before fmt-ing
-        let g:go_fmt_command = "goimports"
-
-        " Disable auto type info
-        let g:go_auto_type_info = 0
-
-        " Disable auto installation of binaries
-        let g:go_disable_autoinstall = 1
-    " }}}
-
-" ========================================================================= }}}
-" Mappings {{{1
+" General Mappings {{{1
 " =============================================================================
     " Leader {{{2
     " ------
@@ -237,38 +212,11 @@
     " -----------------------
         nmap <Space> za
     " }}}
-    " Plugin mappings {{{2
-    " ------
+    " Plugins {{{2
+    " -----------------------
+        " Map undotree to F5
         nnoremap <F5> :UndotreeToggle<cr>
     " }}}
-    " Go Mappings {{{2
-    " -----------
-        " Show type info for the word under your cursor with <leader>i
-        au FileType go nmap <Leader>i <Plug>(go-info)
-
-        " Open the relevant Godoc for the word under the cursor with
-        " <leader>gd or vertically with <leader>gv
-        au FileType go nmap <Leader>gd <Plug>(go-doc)
-        au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
-        " Run commands, such as go run with <leader>r for the current file or
-        " go build and go test for the current package with <leader>b and
-        " <leader>t.
-        au FileType go nmap <leader>r <Plug>(go-run)
-        au FileType go nmap <leader>b <Plug>(go-build)
-        au FileType go nmap <leader>t <Plug>(go-test)
-
-        " Replace gd (Goto Declaration) for the word under your cursor
-        " (replaces current buffer):
-        au FileType go nmap gd <Plug>(go-def)
-
-        " Or open the defitinion/declaration in a new vertical, horizontal or
-        " tab for the word under your cursor:
-        au FileType go nmap <Leader>ds <Plug>(go-def-split)
-        au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-        au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-    " }}}
-
 " ========================================================================= }}}
 " Performance optimizations {{{1
 " =============================================================================
