@@ -1,0 +1,8 @@
+[user]
+	email = george@mux.ro
+	name = George Jiglau
+
+[diff]
+	tool = vimdiff
+[push]
+	default = simple
