@@ -1,5 +1,5 @@
 # Store doth path
-ZSH_LOCAL=$HOME/.dot/local/zsh
+ZSH_LOCAL=$HOME/.dot/.local/zsh
 
 # Load configuration
 for conf (~/.zsh/conf/*.zsh); do
