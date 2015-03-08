@@ -32,7 +32,7 @@
 " ========================================================================= }}}
 " Plugins {{{1
 " =============================================================================
-    call plug#begin('~/.vim/plugs')
+    call plug#begin('~/.dot/local/vim/plugins')
     " General plugins {{{2
     " -----------
         " Lightline
@@ -168,11 +168,11 @@
     " Persistent Undo {{{2
     " ---------------
         " Make sure a tmp folder exists
-        silent !mkdir ~/.vim/tmp > /dev/null 2>&1
+        silent !mkdir -p ~/.dot/local/vim/tmp > /dev/null 2>&1
 
         " Enable persistent undo
         set undofile
-        set undodir=~/.vim/tmp
+        set undodir=~/.dot/local/vim/tmp
         set undolevels=1000
     " }}}
     " Spelling / Typos {{{2
