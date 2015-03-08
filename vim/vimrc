@@ -40,6 +40,9 @@
 
         " UndoTree
         Plug 'mbbill/undotree'
+
+        " solarized
+        Plug 'altercation/vim-colors-solarized'
     " }}}
     " Go plugins {{{2
     " -----------
