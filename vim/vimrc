@@ -162,7 +162,7 @@
         set background=dark
         let g:solarized_termcolors=16
         let g:solarized_visibility="low"
-        colorscheme solarized
+        silent! colorscheme solarized
 
         " Turn on syntax highlighting
         syntax on
