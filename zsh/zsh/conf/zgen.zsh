@@ -1,10 +1,17 @@
 ZGEN_SOURCE=$ZSH_LOCAL/zgen
 ZGEN_DIR=$ZSH_LOCAL/plugins
+ZGEN_INIT=$ZGEN_DIR/init.zsh
 ZGEN_REPO=https://github.com/tarjoilija/zgen.git
 
 # Get zgen if missing
 if [ ! -d $ZGEN_SOURCE ]; then
     git clone --recursive $ZGEN_REPO $ZGEN_SOURCE
+fi
+
+
+if [[ $ZGEN_INIT -ot $0 ]]; then
+    echo "$0 is newer than $ZGEN_INIT, resetting zgen"
+    rm $ZGEN_INIT
 fi
 
 # Load zgen
