@@ -32,7 +32,8 @@
 " ========================================================================= }}}
 " Plugins {{{1
 " =============================================================================
-    call plug#begin('~/.dot/.local/vim/plugins')
+    let s:plugins_dir = '~/.dot/.local/vim/plugins'
+    call plug#begin(s:plugins_dir)
     " General plugins {{{2
     " -----------
         " Lightline
@@ -50,6 +51,11 @@
         Plug 'faith/vim-go'
     " }}}
     call plug#end()
+
+    " Auto install plugins if they're missing
+    if !isdirectory(glob(s:plugins_dir))
+        PlugInstall
+    endif
 " ========================================================================= }}}
 " Look and Feel {{{1
 " =============================================================================
