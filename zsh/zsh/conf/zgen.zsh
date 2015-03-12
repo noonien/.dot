@@ -25,7 +25,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/golang
     zgen oh-my-zsh plugins/python
 
-    #$HOME/.zsh/bundle/solarized-dircolors
+    zgen oh-my-zsh themes/jreese
 
     zgen save
 fi
