@@ -48,7 +48,7 @@
     " Go plugins {{{2
     " -----------
         " vim-go
-        Plug 'faith/vim-go'
+        Plug 'fatih/vim-go'
     " }}}
     call plug#end()
 
