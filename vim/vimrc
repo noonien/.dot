@@ -42,8 +42,8 @@
         " UndoTree
         Plug 'mbbill/undotree'
 
-        " solarized
-        Plug 'altercation/vim-colors-solarized'
+        " hybrid
+        Plug 'w0ng/vim-hybrid'
     " }}}
     " Go plugins {{{2
     " -----------
@@ -159,10 +159,8 @@
         set showmatch
 
         " Set color scheme
-        set background=dark
-        let g:solarized_termcolors=16
-        let g:solarized_visibility="low"
-        silent! colorscheme solarized
+        let g:hybrid_use_Xresources = 1
+        silent! colorscheme hybrid
 
         " Turn on syntax highlighting
         syntax on
