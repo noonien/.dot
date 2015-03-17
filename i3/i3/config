@@ -57,6 +57,9 @@
         # Start chrome
         bindsym $mod+c exec google-chrome
 
+        # Start nautilus
+        bindsym $mod+n exec nautilus --no-desktop
+
         # Lock the screen
         bindsym $mod+Control+l exec slock
 
