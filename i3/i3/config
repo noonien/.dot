@@ -53,6 +53,7 @@
 
         # Start a terminal
         bindsym $mod+grave exec ~/.i3/utils/term
+        bindsym $mod+shift+grave exec ~/.i3/utils/term --connect-ssh
 
         # Start chrome
         bindsym $mod+c exec google-chrome
