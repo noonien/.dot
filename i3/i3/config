@@ -52,8 +52,8 @@
         bindsym $mod+Shift+d exec --no-startup-id gksudo i3-dmenu-desktop
 
         # Start a terminal
-        bindsym $mod+grave exec ~/.i3/utils/term
-        bindsym $mod+shift+grave exec ~/.i3/utils/term --connect-ssh
+        bindsym $mod+grave exec ~/.i3/utils/term.sh
+        bindsym $mod+shift+grave exec ~/.i3/utils/term.sh --connect-ssh
 
         # Start chrome
         bindsym $mod+c exec google-chrome
