@@ -19,6 +19,7 @@ source $ZGEN_SOURCE/zgen.zsh
 if ! zgen saved; then
     echo "Creating zgen save"
 
+    # oh-my-zsh
     zgen oh-my-zsh
 
     zgen oh-my-zsh plugins/debian
@@ -34,5 +35,13 @@ if ! zgen saved; then
 
     zgen oh-my-zsh themes/jreese
 
+    # Other plugins
+    zgen load tarruda/zsh-autosuggestions
+
     zgen save
 fi
+
+zle-line-init() {
+      zle autosuggest-start
+}
+zle -N zle-line-init
