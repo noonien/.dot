@@ -1,5 +1,5 @@
-if [[ -d "$HOME/go" ]]; then
-    export GOPATH=$HOME/go
+if [[ -d "$HOME/.go" ]]; then
+    export GOPATH=$HOME/.go
     export PATH=$PATH:$GOPATH/bin
 
     hash -d gosrc=$GOPATH/src/github.com/noonien
