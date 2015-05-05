@@ -2,7 +2,12 @@
 	email = george@mux.ro
 	name = George Jiglau
 
-[diff]
-	tool = vimdiff
 [push]
 	default = simple
+
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
