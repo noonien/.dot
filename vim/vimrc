@@ -50,6 +50,11 @@
         " vim-go
         Plug 'fatih/vim-go'
     " }}}
+    " Javascript plugins {{{2
+    " -----------
+        " vim-go
+        Plug 'kchmck/vim-coffee-script'
+    " }}}
     call plug#end()
 
     " Auto install plugins if they're missing
