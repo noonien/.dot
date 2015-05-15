@@ -114,6 +114,9 @@
         " Disable wrapping
         set nowrap
 
+        " Always show status line
+        set laststatus=2
+
     " }}}
     " Tabbing and spaces {{{2
     " ------------------
