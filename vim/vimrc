@@ -55,6 +55,11 @@
         " vim-go
         Plug 'kchmck/vim-coffee-script'
     " }}}
+    " Plugins for smaller/markup languages {{{2
+    " -----------
+        " vim-yaml
+        Plug 'stephpy/vim-yaml'
+    " }}}
     call plug#end()
 
     " Auto install plugins if they're missing
