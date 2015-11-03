@@ -185,6 +185,10 @@
 # }}}
 # Window configuration {{{1
 # =============================================================================
+    # Java
+    for_window [instance="sun-awt-X11-XFramePeer"] floating enable
+    for_window [instance="sun-awt-X11-XDialogPeer"] floating enable
+
     # Hangouts
     for_window [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
 
