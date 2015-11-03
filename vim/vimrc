@@ -50,6 +50,11 @@
         " vim-go
         Plug 'fatih/vim-go'
     " }}}
+    " Python plugins {{{2
+    " -----------
+        " python-syntax
+        Plug 'hdima/python-syntax'
+    " }}}
     " Javascript plugins {{{2
     " -----------
         " vim-go
