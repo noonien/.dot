@@ -11,6 +11,17 @@
     set $mod Mod4
 
 # =============================================================================
+# Startup {{{1
+# =============================================================================
+    # Required by gnome-settings
+    exec --no-startup-id /usr/bin/unity-settings-daemon
+
+    # Network Manager
+    exec --no-startup-id /usr/bin/nm-applet
+
+    # Required to enable GUI sudoing
+    exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
 # General Options {{{1
 # =============================================================================
     # Disable chaning when mousing over
@@ -49,7 +60,7 @@
     # ------------
         # Start dmenu
         bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-        bindsym $mod+Shift+d exec --no-startup-id gksudo i3-dmenu-desktop
+        bindsym $mod+shift+d exec --no-startup-id gksudo i3-dmenu-desktop
 
         # Start a terminal
         bindsym $mod+grave exec ~/.i3/utils/term.sh
@@ -57,12 +68,13 @@
 
         # Start chrome
         bindsym $mod+c exec google-chrome
+        bindsym $mod+shift+c exec google-chrome -incognito
 
         # Start nautilus
         bindsym $mod+n exec nautilus --no-desktop
 
         # Lock the screen
-        bindsym $mod+Control+l exec slock
+        bindsym $mod+control+l exec slock
 
     # }}}
     # Change layout {{{2
@@ -94,10 +106,10 @@
         bindsym $mod+a focus parent
 
         # move focused window
-        bindsym $mod+Shift+h move left
-        bindsym $mod+Shift+j move down
-        bindsym $mod+Shift+k move up
-        bindsym $mod+Shift+l move right
+        bindsym $mod+shift+h move left
+        bindsym $mod+shift+j move down
+        bindsym $mod+shift+k move up
+        bindsym $mod+shift+l move right
 
         # resize window (you can also use the mouse for that)
         mode "resize" {
@@ -128,20 +140,20 @@
         bindsym $mod+0 workspace number 0
 
         # move focused container to workspace
-        bindsym $mod+Shift+1 move container to workspace number 1
-        bindsym $mod+Shift+2 move container to workspace number 2
-        bindsym $mod+Shift+3 move container to workspace number 3
-        bindsym $mod+Shift+4 move container to workspace number 4
-        bindsym $mod+Shift+5 move container to workspace number 5
-        bindsym $mod+Shift+6 move container to workspace number 6
-        bindsym $mod+Shift+7 move container to workspace number 7
-        bindsym $mod+Shift+8 move container to workspace number 8
-        bindsym $mod+Shift+9 move container to workspace number 9
-        bindsym $mod+Shift+0 move container to workspace number 0
+        bindsym $mod+shift+1 move container to workspace number 1
+        bindsym $mod+shift+2 move container to workspace number 2
+        bindsym $mod+shift+3 move container to workspace number 3
+        bindsym $mod+shift+4 move container to workspace number 4
+        bindsym $mod+shift+5 move container to workspace number 5
+        bindsym $mod+shift+6 move container to workspace number 6
+        bindsym $mod+shift+7 move container to workspace number 7
+        bindsym $mod+shift+8 move container to workspace number 8
+        bindsym $mod+shift+9 move container to workspace number 9
+        bindsym $mod+shift+0 move container to workspace number 0
 
         # Switch between the current and the previously focused one
         bindsym $mod+b workspace back_and_forth
-        bindsym $mod+Shift+b move container to workspace back_and_forth
+        bindsym $mod+shift+b move container to workspace back_and_forth
 
     # }}}
     # Media {{{2
@@ -169,16 +181,16 @@
         bindsym $mod+f fullscreen
 
         # toggle tiling / floating
-        bindsym $mod+Shift+space floating toggle
+        bindsym $mod+shift+space floating toggle
 
         # reload the configuration file
-        bindsym $mod+Shift+c reload
+        bindsym $mod+control+r reload
 
         # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-        bindsym $mod+Shift+r restart
+        bindsym $mod+shift+r restart
 
         # exit i3 (logs you out of your X session)
-        bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+        bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
     # }}}
 
