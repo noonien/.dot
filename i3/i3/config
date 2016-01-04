@@ -166,6 +166,15 @@
         bindsym XF86AudioMute exec --no-startup-id ~/.i3/utils/sound.sh toggle-mute
 
     # }}}
+    # Language layout {{{2
+    # -----
+        # Ro std
+        bindsym $mod+F11 exec --no-startup-id /usr/bin/setxkbmap ro std
+
+        # US
+        bindsym $mod+F12 exec --no-startup-id /usr/bin/setxkbmap us
+
+    # }}}
 
     # Other {{{2
     # -----
