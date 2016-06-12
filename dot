@@ -3,7 +3,7 @@ import argparse
 import os
 import os.path as path
 
-CONFIRM_MSG = ('The file ".%s" allready exists. [S]kip all, [s]kip, [O]verride '
+CONFIRM_MSG = ('The file ".%s" already exists. [S]kip all, [s]kip, [O]verride '
                 'all, [o]verride, [B]ackup all, [b]ackup?: ')
 def install(args):
     home = os.environ['HOME']
