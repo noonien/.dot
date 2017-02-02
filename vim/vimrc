@@ -44,6 +44,12 @@
 
         " hybrid
         Plug 'w0ng/vim-hybrid'
+
+        " NERDTree
+        Plug 'scrooloose/nerdtree'
+
+        " tagbar
+        Plug 'majutsushi/tagbar'
     " }}}
     " Go plugins {{{2
     " -----------
@@ -242,6 +248,13 @@
     " -----------------------
         " Map undotree to F5
         nnoremap <F5> :UndotreeToggle<cr>
+
+        " Map undotree to F3
+        nnoremap <F3> :NERDTreeToggle<cr>
+
+        " Map tagbar to F8
+        nnoremap <F8> :TagbarToggle<cr>
+
     " }}}
 " ========================================================================= }}}
 " Performance optimizations {{{1
