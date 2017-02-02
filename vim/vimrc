@@ -50,6 +50,12 @@
 
         " tagbar
         Plug 'majutsushi/tagbar'
+
+        " editorconfig
+        Plug 'editorconfig/editorconfig-vim'
+
+        " NERDTree
+        Plug 'scrooloose/nerdtree'
     " }}}
     " Go plugins {{{2
     " -----------
