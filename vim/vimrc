@@ -61,6 +61,9 @@
         " deoplete
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         let g:deoplete#enable_at_startup = 1
+
+        " over
+        Plug 'osyo-manga/vim-over'
     " }}}
     " Go plugins {{{2
     " -----------
@@ -76,18 +79,23 @@
     " }}}
     " Python plugins {{{2
     " -----------
-        " python-syntax
-        Plug 'hdima/python-syntax'
+        " python-mode
+        Plug 'python-mode/python-mode'
     " }}}
     " Javascript plugins {{{2
     " -----------
-        " vim-go
+        " vim-es6
+        Plug 'isRuslan/vim-es6'
+        " vim-coffee-script
         Plug 'kchmck/vim-coffee-script'
     " }}}
     " Plugins for smaller/markup languages {{{2
     " -----------
         " vim-yaml
         Plug 'stephpy/vim-yaml'
+
+        " vim-gdscript
+        Plug 'quabug/vim-gdscript'
     " }}}
     call plug#end()
 
