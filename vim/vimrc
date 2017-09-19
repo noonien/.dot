@@ -282,6 +282,14 @@
         nnoremap <F8> :TagbarToggle<cr>
 
     " }}}
+    " Other mappings {{{2
+    " -----------------------
+        " [de]base64
+        vnoremap <leader>64 y:let @"=system('base64 -w0', @")<cr>gvP
+        "
+        " [de]base64
+        vnoremap <leader>d64 y:let @"=system('base64 --decode', @")<cr>gvP
+    " }}}
 " ========================================================================= }}}
 " Performance optimizations {{{1
 " =============================================================================
