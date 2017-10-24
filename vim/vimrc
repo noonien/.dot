@@ -61,6 +61,10 @@
 
         " over
         Plug 'osyo-manga/vim-over'
+
+        " fzf
+        Plug '$HOME/.dot/.local/zsh/fzf'
+        Plug 'junegunn/fzf.vim'
     " }}}
     " Go plugins {{{2
     " -----------
