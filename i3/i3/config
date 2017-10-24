@@ -13,14 +13,6 @@
 # =============================================================================
 # Startup {{{1
 # =============================================================================
-    # Required by gnome-settings
-    exec --no-startup-id /usr/bin/unity-settings-daemon
-
-    # Network Manager
-    exec --no-startup-id /usr/bin/nm-applet
-
-    # Required to enable GUI sudoing
-    exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # General Options {{{1
 # =============================================================================
