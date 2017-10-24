@@ -19,8 +19,8 @@
     " Run goimports before fmt-ing
     let g:go_fmt_command = "goimports"
 
-    " Disable auto type info
-    let g:go_auto_type_info = 0
+    " Enable auto type info
+    let g:go_auto_type_info = 1
 
 " ========================================================================= }}}
 " Mappings {{{1
