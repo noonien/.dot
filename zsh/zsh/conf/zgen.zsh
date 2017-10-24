@@ -28,6 +28,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/git-extras
     zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/kubectl
 
     zgen oh-my-zsh plugins/golang
     zgen oh-my-zsh plugins/python
