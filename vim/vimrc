@@ -33,7 +33,6 @@
 " Plugins {{{1
 " =============================================================================
     let s:plugins_dir = '~/.dot/.local/vim/plugins'
-    let g:plug_url_format = 'git@github.com:%s.git'
     call plug#begin(s:plugins_dir)
     " General plugins {{{2
     " -----------
