@@ -67,10 +67,16 @@
         bindsym $mod+shift+c exec google-chrome -incognito
 
         # Start nautilus
-        bindsym $mod+n exec nautilus --no-desktop
+        bindsym $mod+n exec thunar
 
         # Lock the screen
         bindsym $mod+control+l exec slock
+
+        # Take screenshots
+        bindsym --release Print exec xfce4-screenshooter -f
+        bindsym --release control+Print exec xfce4-screenshooter -r
+        bindsym --release mod1+Sys_Req exec xfce4-screenshooter -w
+
 
     # }}}
     # Change layout {{{2
@@ -152,26 +158,6 @@
         bindsym $mod+shift+b move container to workspace back_and_forth
 
     # }}}
-    # Media {{{2
-    # -----
-        # Volume raise/lower
-        bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.i3/utils/sound.sh volume-up
-        bindsym XF86AudioLowerVolume exec --no-startup-id ~/.i3/utils/sound.sh volume-down
-
-        # Toggle mute
-        bindsym XF86AudioMute exec --no-startup-id ~/.i3/utils/sound.sh toggle-mute
-
-    # }}}
-    # Language layout {{{2
-    # -----
-        # Ro std
-        bindsym $mod+F11 exec --no-startup-id /usr/bin/setxkbmap ro std
-
-        # US
-        bindsym $mod+F12 exec --no-startup-id /usr/bin/setxkbmap us
-
-    # }}}
-
     # Other {{{2
     # -----
         # Change border
