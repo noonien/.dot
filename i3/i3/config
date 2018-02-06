@@ -36,7 +36,9 @@
         # i3status finds out, if available)
         bar {
             position top
-            status_command i3status
+            status_command i3blocks -c $HOME/.i3/i3blocks.conf
+            tray_output DP-1
+            font pango:RobotoMono Nerd Font Regular 8
         }
     # }}}
     # Styles for specific windows {{{2
