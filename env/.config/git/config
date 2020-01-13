@@ -1,0 +1,43 @@
+[user]
+	email = george@mux.ro
+	name = George-Cristian Jiglau
+
+[core]
+    excludefile = ~/.config/git/ignore_global
+    autocrlf = input
+    safecrlf = true
+
+[alias]
+	d = difftool
+	c = commit
+	s = status
+	st = status
+	lg = log --oneline
+	last = log -1 HEAD
+
+[push]
+	default = simple
+
+[diff]
+	tool = vimdiff
+
+[merge]
+	tool = nvim -d
+
+[difftool]
+	prompt = false
+
+[url "git@gitlab.com"]
+	insteadOf = gl:
+
+[url "git@github.com:"]
+	insteadOf = gh:
+
+[github]
+    user = noonien
+
+[protocol]
+    version = 2
+
+[http]
+	cookiefile = /home/george/.cache/.gitcookies

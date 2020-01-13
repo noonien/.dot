@@ -1,0 +1,23 @@
+{
+	"explorer.sources": [
+		{
+			"name": "buffer",
+			"expand": true
+		},
+		{
+			"name": "file",
+			"expand": true
+		}
+	],
+	"explorer.position": "right",
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"usePlaceholders": true
+			}
+		}
+	}
+}

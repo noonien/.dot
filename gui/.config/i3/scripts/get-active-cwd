@@ -1,0 +1,51 @@
+#!/bin/sh
+# Start a terminal from the current focused terminal's CWD
+
+# default CWD
+DEFAULT=$HOME
+CWD=
+
+# Get ID of current focused window
+ID=$(xdpyinfo | grep focus | cut -f4 -d " " | tr -d '[:space:],')
+
+
+# Get the process' PID
+PID=$(xprop -id $ID | grep -m 1 PID | cut -d " " -f 3)
+if [ -z "$PID" ]; then
+    echo $DEFAULT
+    exit
+fi
+
+# Get the window's class
+CLASS=$(xprop -id $ID | grep -m 1 CLASS | cut -d \" -f 2)
+
+# Check if it's a termite window
+if [ "$CLASS" == "termite" ]; then
+    CMD_PID=$PID
+    while true; do
+        child_pid=$(ps -o pid --no-headers --ppid $CMD_PID | head -1 | tr -d '[:space:]')
+        if [ -z "$child_pid" ]; then break; fi
+        CMD_PID=$child_pid
+    done
+    CWD=$(readlink /proc/$CMD_PID/cwd)
+fi
+
+#if [ "$CLASS" == "pcmanfm" ]; then
+#    rm -f /tmp/pcmanfm-cwd
+#    xdotool - <<EOF
+#        key --delay 0 Alt_L+l Down Down Return
+#        type --delay 0 "sh -c 'pwd > /tmp/pcmanfm-cwd'"
+#        key --delay 0 Return
+#EOF
+#    while [ ! -f /tmp/pcmanfm-cwd ]; do
+#        sleep 0.01
+#    done
+#    CWD=$(cat /tmp/pcmanfm-cwd)
+#    rm -f /tmp/pcmanfm-cwd
+#fi
+
+if [ -z "$CWD" ]; then
+    CWD=$DEFAULT
+fi
+
+echo $CWD

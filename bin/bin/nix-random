@@ -1,0 +1,19 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i python3 -p python3
+import json
+import os
+import random
+import subprocess
+
+search = subprocess.run('nix search --json . 2>/dev/null', shell=True, stdout=subprocess.PIPE)
+pkgs_json = search.stdout
+pkgs = json.loads(pkgs_json)
+
+i=0
+while i < 5:
+    pkg_name = random.choice(list(pkgs.keys()))
+    pkg = pkgs[pkg_name]
+    if 'Packages' in pkg_name or pkg['description'] == '':
+        continue
+    print('%s (%s): %s' % (pkg_name, pkg['version'], pkg['description']))
+    i += 1

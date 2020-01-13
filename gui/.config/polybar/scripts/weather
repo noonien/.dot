@@ -1,0 +1,3 @@
+#!/bin/sh
+# do format=j1, extract data: desc, temp, feels, precip, humid
+curl -s 'wttr.in/Kingston upon Thames,Surrey?format=j1' | jq -r '.current_condition[0] | "\(.weatherDesc[0].value), \(.temp_C)°C"'

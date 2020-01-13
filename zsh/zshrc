@@ -1,9 +1,0 @@
-# Store doth path
-ZSH_LOCAL=$HOME/.dot/.local/zsh
-
-# Load configuration
-for conf (~/.zsh/conf/*.zsh); do
-    source $conf
-done
-
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local

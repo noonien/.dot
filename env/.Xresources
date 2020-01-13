@@ -1,0 +1,72 @@
+!! =============================================================================
+!! This file is part of my dotfiles, which can be found at:
+!!    https://github.com/noonien/.dot
+!! =============================================================================
+!
+!! =============================================================================
+!! XFT {{{1
+!! =============================================================================
+!Xft.antialias:  true
+!Xft.hinting:    true
+!Xft.rgba:       rgb
+!Xft.hintstyle:  hintslight
+!xft.dpi:        197
+!
+!! =============================================================================
+!! urxvt {{{1
+!! =============================================================================
+!! Colors scheme (solarized dark) {{{2
+!! -------------
+!URxvt*intensityStyles:  false
+!URxvt*background:       #1D1F21
+!URxvt*foreground:       #C5C8C6
+!URxvt*cursorColor:      #707880
+!URxvt*fadeColor:        #373B41
+!
+!URxvt*color0:   #282A2E
+!URxvt*color1:   #A54242
+!URxvt*color2:   #8C9440
+!URxvt*color3:   #DE935F
+!URxvt*color4:   #5F819D
+!URxvt*color5:   #85678F
+!URxvt*color6:   #5E8D87
+!URxvt*color7:   #707880
+!URxvt*color8:   #373B41
+!URxvt*color9:   #CC6666
+!URxvt*color10:  #B5BD68
+!URxvt*color11:  #F0C674
+!URxvt*color12:  #81A2BE
+!URxvt*color13:  #B294BB
+!URxvt*color14:  #8ABEB7
+!URxvt*color15:  #C5C8C6
+!
+!! Look and feel {{{2
+!! -------------
+!! Terminal icon
+!URxvt*iconFile: /usr/share/icons/gnome/scalable/apps/utilities-terminal-symbolic.svg
+!
+!! Transparency
+!!URxvt*transparent:      true
+!!URxvt*shading:          30
+!
+!! Font
+!URxvt*font:     xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+!
+!URxvt*letterSpace:      -1
+!URxvt*scrollBar:        false
+!URxvt*cursorBlink:      true
+!URxvt*secondaryScroll:  false
+!
+!! Clickable URLs
+!URxvt*perl-ext-common:  default,matcher
+!URxvt*url-launcher:     /usr/bin/xdg-open
+!URxvt*matcher.button:   1
+!
+!! }}}
+!! Other {{{2
+!! -----
+!URxvt*saveLines:    12000
+!! }}}
+!! }}}
+!! =============================================================================
+!! vim: foldmethod=marker foldmarker={{{,}}} ts=4 sts=4 sw=4 expandtab:

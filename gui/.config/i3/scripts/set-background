@@ -1,0 +1,3 @@
+#!/bin/sh
+wall=$(shuf -n1 -e $HOME/pics/wallpapers/*)
+exec feh --bg-fill $wall

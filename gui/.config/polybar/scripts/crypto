@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+# coding=utf-8
+import json
+import math
+import os
+import requests
+import sys
+
+coin_ids = {
+    "BTC": "bitcoin", "ETH": "ethereum", "XRP": "xrp", "USDT": "tether",
+    "BCH": "bitcoin-cash", "LTC": "litecoin", "EOS": "eos",
+    "BNB": "binance-coin", "BSV": "bitcoin-sv", "XTZ": "tezos",
+    "XLM": "stellar", "TRX": "tron", "ADA": "cardano", "LEO": "unus-sed-leo",
+    "MIN": "mindol", "ATOM": "cosmos", "XMR": "monero", "999": "999-coin",
+    "HT": "huobi-token", "LINK": "chainlink", "NEO": "neo", "USDC": "usd-coin",
+    "MKR": "maker", "ETC": "ethereum-classic", "MIOTA": "iota",
+    "CRO": "crypto-com-coin", "DASH": "dash", "HEDG": "hedgetrade",
+    "ONT": "ontology", "XEM": "nem", "VET": "vechain", "DOGE": "dogecoin",
+    "INO": "ino-coin", "BAT": "basic-attention-token", "PAX": "paxos-standard",
+    "ZEC": "zcash", "FTT": "ftx-token", "SNX": "synthetix-network-token",
+    "INB": "insight-chain", "DCR": "decred", "QTUM": "qtum", "TUSD": "trueusd",
+    "UNI": "uni-coin", "PZM": "prizm", "RVN": "ravencoin", "THR": "thorecoin",
+    "ZRX": "0x", "CENNZ": "centrality", "THX": "thorenext", "ALGO": "algorand",
+    "CNX": "cryptonex", "REP": "augur", "HOT": "holo", "SEELE": "seele",
+    "ABBC": "abbc-coin", "BTG": "bitcoin-gold", "NANO": "nano",
+    "THETA": "theta", "OMG": "omisego", "XIN": "mixin", "WAVES": "waves",
+    "ZB": "zb-token", "KBC": "karatgold-coin", "DGB": "digibyte",
+    "KCS": "kucoin-shares", "MOF": "molecular-future", "VSYS": "v-systems",
+    "EON": "dimension-chain", "FST": "1irstcoin", "CCA": "counos-coin",
+    "LUNA": "luna", "BTM": "bytom", "BDX": "beldex", "SXP": "swipe",
+    "EKT": "educare", "IOST": "iostoken", "XVG": "verge", "LSK": "lisk",
+    "KMD": "komodo", "BCD": "bitcoin-diamond", "ENJ": "enjin-coin",
+    "GAP": "gaps", "SLV": "silverway", "BCN": "bytecoin-bcn",
+    "BTT": "bittorrent", "MCO": "crypto-com", "ICX": "icon", "SC": "siacoin",
+    "BXK": "bitbook-gambling", "ZEN": "horizen", "FAB": "fabrk",
+    "DX": "dxchain-token", "MAID": "maidsafecoin", "OKB": "okb",
+    "MONA": "monacoin", "NEXO": "nexo", "STEEM": "steem", "NRG": "energi",
+    "ZIL": "zilliqa", "HC": "hypercash",
+}
+
+coin_symbol=sys.argv[1].upper()
+base=sys.argv[2].lower() if len(sys.argv) == 3 else 'usd'
+coin_id = coin_ids[coin_symbol]
+
+PRICE_CHANGE_URGENT_PERCENT = 10
+
+API_URL = 'https://api.coinmarketcap.com/v1/ticker/{}/' # CoinMarketCap API
+if base not in ['usd', 'btc']:
+    API_URL += '?convert={}'.format(base.upper())
+
+r = requests.get(API_URL.format(coin_id))
+data = json.loads(r.text)[0]
+
+if base == 'bitcoin':
+    price = float(data['price_btc'])
+else:
+    price = float(data['price_' + base])
+
+
+precision = max(0, 4 - math.ceil(math.log10(price)))
+
+info = ''
+for period in ['1h', '24h', '7d']:
+    perc = round(float(data['percent_change_' + period]), 2)
+    perc_format = ' %{{F{}}}{}{:.2f}%%{{F-}}'
+    if perc == 0: period_change = ' {:.2f}%'.format(perc)
+    elif perc > 0: period_change = perc_format.format('#3BB92D', '↑', perc)
+    else: period_change = perc_format.format('#F7555E', '↓', perc)
+    info += period_change
+
+print(('{} {:.' + str(precision) + 'f}{}').format(coin_symbol, price, info)) # Full Text

@@ -1,0 +1,4 @@
+#!/bin/sh
+# exec a program in the current CWD
+cd $($(dirname $0)/get-active-cwd)
+exec "$@"

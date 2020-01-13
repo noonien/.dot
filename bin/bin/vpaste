@@ -1,0 +1,9 @@
+#!/bin/sh
+
+uri="https://vpaste.net/"
+if [ -f "$1" ]; then
+	out=`curl -s -F "text=<$1" "$uri?$2"`
+else
+	out=`curl -s -F 'text=<-' "$uri?$1"`
+fi
+echo "$out"
