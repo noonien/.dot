@@ -30,8 +30,14 @@
 [url "git@gitlab.com"]
 	insteadOf = gl:
 
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+
 [url "git@github.com:"]
 	insteadOf = gh:
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 
 [github]
     user = noonien
