@@ -2,27 +2,35 @@
 #!nix-shell -i bash -p bash
 
 usage() {
-	echo "Usage: $0 {{-p package}} [command..]"
+	echo "Usage: $0 [-u] [-c channel] {{-p package}} {{-P package}} [command..]"
 	exit 2
 }
 
 check_pkg_exists() {
-	expr='{ package }: import <nixpkgs> {} ? ${package}'
-	exists=$(nix-instantiate --no-gc-warning --eval -E "$expr" --argstr package "$1")
+	expr="import <$1> {} ? $2"
+	exists=$(nix-instantiate --no-gc-warning --eval -E "$expr")
 	if [ "$exists" != "true" ]; then
 		echo "package $1 does not exist"
 		exit 2
 	fi
 }
 
+
+CHANNEL="nixos"
 PACKAGES=""
-while getopts 'p:' c; do
+while getopts 'c:up:P:' c; do
 	case $c in
-		p) check_pkg_exists "$OPTARG"; PACKAGES="$PACKAGES -p $OPTARG" ;;
+		c) CHANNEL="$OPTARG" ;;
+		u) CHANNEL="nixos-unstable" ;;
+		p) check_pkg_exists "$CHANNEL" "$OPTARG"; PACKAGES="$PACKAGES $CHANNEL.$OPTARG" ;;
+		P) check_pkg_exists "nixos-unstable" "$OPTARG"; PACKAGES="$PACKAGES nixos-unstable.$OPTARG" ;;
 		h|?) usage ;;
 	esac
 done
 
+PACKAGES=${PACKAGES## }
+
+# remove values parsed with getopts
 shift $((OPTIND-1))
 
 cmd=
@@ -30,23 +38,27 @@ for arg in "$@"; do
 	cmd="$cmd ${arg@Q}"
 done
 
+PKG_EXPR="{ nixos = import <nixos> {}; nixos-unstable = import <nixos-unstable> {}; }"
+SHELL_EXPR="with $PKG_EXPR; nixos.buildEnv { name = \"nix-run\"; paths = [ $PACKAGES ]; }"
+
 # no command specified, execute first binary in first package
 if [ "x$cmd" == "x" ]; then
 	if [ "x$PACKAGES" == "x" ]; then
 		usage
 	fi
 
-	pkg=$(echo "$PACKAGES" | cut -d\  -f3)
-	expr="with import <nixpkgs> {}; let x = $pkg; in x"
+	pkg=${PACKAGES%% *}
+	expr="$PKG_EXPR.$pkg"
 	path=$(nix-instantiate --no-gc-warning -E "$expr")
 	out=$(nix-store --no-gc-warning -r $path)
 
-	if [ -f "$out/bin/$pkg" ]; then
-		exec nix-shell $PACKAGES --command "$out/bin/$pkg"
+	bin=${pkg##*.}
+	if [ -f "$out/bin/$bin" ]; then
+		exec nix-shell -E "$SHELL_EXPR" --command "$out/bin/$bin"
 
 	elif [ -d "$out/bin" ]; then
 		for f in $out/bin/*; do
-			exec nix-shell $PACKAGES --command "$f"
+			exec nix-shell -E "$SHELL_EXPR" --command "$f"
 		done
 	fi
 
@@ -55,7 +67,6 @@ if [ "x$cmd" == "x" ]; then
 	echo "can't find anything to run in package $pkg"
 	exit 2
 fi
-
 
 # no packages were provided
 if [ "x$PACKAGES" == "x" ]; then
@@ -87,4 +98,5 @@ if [ "x$PACKAGES" == "x" ]; then
 	fi
 fi
 
-exec nix-shell $PACKAGES --command "$cmd"
+
+exec nix-shell -E "$SHELL_EXPR" --command "$cmd"
