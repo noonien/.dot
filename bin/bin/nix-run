@@ -15,6 +15,15 @@ check_pkg_exists() {
 	fi
 }
 
+PKG_EXPR="{ nixos = import <nixos> {}; nixos-unstable = import <nixos-unstable> {}; }"
+shell_expr() {
+	cat << EOF
+ with $PKG_EXPR; nixos.stdenvNoCC.mkDerivation {
+ 	name = "nix-run";
+	buildInputs = [ $PACKAGES ];
+}
+EOF
+}
 
 CHANNEL="nixos"
 PACKAGES=""
@@ -38,8 +47,6 @@ for arg in "$@"; do
 	cmd="$cmd ${arg@Q}"
 done
 
-PKG_EXPR="{ nixos = import <nixos> {}; nixos-unstable = import <nixos-unstable> {}; }"
-SHELL_EXPR="with $PKG_EXPR; nixos.buildEnv { name = \"nix-run\"; paths = [ $PACKAGES ]; }"
 
 # no command specified, execute first binary in first package
 if [ "x$cmd" == "x" ]; then
@@ -54,11 +61,11 @@ if [ "x$cmd" == "x" ]; then
 
 	bin=${pkg##*.}
 	if [ -f "$out/bin/$bin" ]; then
-		exec nix-shell -E "$SHELL_EXPR" --command "$out/bin/$bin"
+		exec nix-shell -E "$(shell_expr)" --command "$out/bin/$bin"
 
 	elif [ -d "$out/bin" ]; then
 		for f in $out/bin/*; do
-			exec nix-shell -E "$SHELL_EXPR" --command "$f"
+			exec nix-shell -E "$(shell_expr)" --command "$f"
 		done
 	fi
 
@@ -71,9 +78,9 @@ fi
 # no packages were provided
 if [ "x$PACKAGES" == "x" ]; then
 	cmd_pkg=$1
-	if (check_pkg_exists $cmd_pkg &>/dev/null); then
+	if (check_pkg_exists $CHANNEL $cmd_pkg &>/dev/null); then
 		# check if package with the name of command exists, use it
-		PACKAGES="-p $cmd_pkg"
+		PACKAGES="$CHANNEL.$cmd_pkg"
 	else
 		# if not, search for a package that provides it
 		matches=$(command-not-found $cmd_pkg 2>&1 | tail +3 | cut -d. -f2-)
@@ -94,9 +101,9 @@ if [ "x$PACKAGES" == "x" ]; then
 			exit 2
 		fi
 
-		PACKAGES="-p $matches"
+		PACKAGES="$CHANNEL.$matches"
 	fi
+
 fi
 
-
-exec nix-shell -E "$SHELL_EXPR" --command "$cmd"
+exec nix-shell -E "$(shell_expr)" --command "$cmd"
