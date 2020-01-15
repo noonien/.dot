@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+CHANNEL="nixos"
+while getopts 'c:' c; do
+	case $c in
+		c) CHANNEL="$OPTARG" ;;
+	esac
+done
+
+# remove values parsed with getopts
+shift $((OPTIND-1))
+
+# first argument is the file
+file=$1
+
+# shift file out, so we can use the rest of the arguments
+shift
+
+nix-build -E "with import <$CHANNEL> { }; callPackage ./$file {}" "$@"
