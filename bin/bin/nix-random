@@ -9,11 +9,33 @@ search = subprocess.run('nix search --json . 2>/dev/null', shell=True, stdout=su
 pkgs_json = search.stdout
 pkgs = json.loads(pkgs_json)
 
-i=0
-while i < 5:
-    pkg_name = random.choice(list(pkgs.keys()))
-    pkg = pkgs[pkg_name]
-    if 'Packages' in pkg_name or pkg['description'] == '':
+def shuffled(sequence):
+    deck = list(sequence)
+    while len(deck):
+        i = random.randint(0, len(deck) - 1) # choose random card
+        card = deck[i]                       # take the card
+        deck[i] = deck[-1]                   # put top card in its place
+        deck.pop()                           # remove top card
+        yield card
+
+i = 0
+for pkg_name in shuffled(pkgs.keys()):
+    # we only care about packages in the nixos channel
+    if not pkg_name.startswith('nixos.'):
         continue
+
+    # we only care about top-level packages
+    if pkg_name.count('.') > 1:
+        continue
+
+    pkg = pkgs[pkg_name]
+
+    # we don't care about packages with no description
+    if pkg['description'] == '':
+        continue
+
     print('%s (%s): %s' % (pkg_name, pkg['version'], pkg['description']))
+
     i += 1
+    if i == 5:
+        break
