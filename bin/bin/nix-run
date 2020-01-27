@@ -83,7 +83,7 @@ if [ "x$PACKAGES" == "x" ]; then
 		PACKAGES="$CHANNEL.$cmd_pkg"
 	else
 		# if not, search for a package that provides it
-		matches=$(command-not-found $cmd_pkg 2>&1 | tail +3 | cut -d. -f2-)
+		matches=$(command-not-found $cmd_pkg 2>&1 | grep nix-env | awk '{print $3}')
 		count=$(echo -n "$matches" | grep -c '^')
 
 		# couldn't find any
@@ -101,7 +101,7 @@ if [ "x$PACKAGES" == "x" ]; then
 			exit 2
 		fi
 
-		PACKAGES="$CHANNEL.$matches"
+		PACKAGES="$matches"
 	fi
 
 fi
