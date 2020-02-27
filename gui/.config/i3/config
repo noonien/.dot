@@ -80,8 +80,8 @@
         bindsym $mod+grave exec ~/.config/i3/scripts/exec-in-cwd termite
 
         # Start browser
-        bindsym $mod+c exec brave --process-per-site --disable-reading-from-canvas
-        bindsym $mod+shift+c exec brave --process-per-site --disable-reading-from-canvas -incognito
+        bindsym $mod+c exec brave --process-per-site
+        bindsym $mod+shift+c exec brave --process-per-site -incognito
 
         # Start nautilus
         bindsym $mod+n exec ~/.config/i3/scripts/exec-in-cwd pcmanfm
